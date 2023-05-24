@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<lista_produtos>
+	<produto>
+		<id>1</id>
+		<nome>Pepsi</nome>
+		<preco>5.99</preco>
+	</produto>
+	<produto>
+		<id>2</id>
+		<nome>Fanta</nome>
+		<preco>6.99</preco>
+	</produto>
+	<produto>
+		<id>3</id>
+		<nome>Arroz Tio João</nome>
+		<preco>3.95</preco>
+	</produto>
+</lista_produtos>
+

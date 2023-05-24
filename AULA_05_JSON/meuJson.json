@@ -1,0 +1,14 @@
+{
+  "nome": "Rangel",
+  "idade": 25,
+  "altura": 1.85,
+  "aluno": true,
+  "formaturas": [2006, 2013, 2017],
+  "cursos": ["Tecnicos", "Graduação", "Mestrado"],
+  "cnh": { "numero": "12345", "categoria": "AB" },
+  "filhos": [
+    { "nome": "Jose", "idade": 10 },
+    { "nome": "Julia", "idade": 14 }
+  ],
+  "endereco": null
+}
