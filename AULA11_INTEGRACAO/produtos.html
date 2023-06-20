@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produtos</title>
+  </head>
+  <body>
+    <!-- <form action="http://localhost:8001/produtos" method="POST"> -->
+    <input type="text" name="nome" id="txtNome" placeholder="Nome: " /> <br />
+    <input type="text" name="preco" id="txtPreco" placeholder="Preço: " /> <br />
+    <input type="button" onclick="Add()" value="Salvar" /> <br />
+    <!-- </form> -->
+
+    <hr />
+
+    <button id="btnAtualizar" onclick="ler()">Atualizar</button>
+
+    <div id="status"></div>
+
+    <table border="1" id="tblProdutos">
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Preco</th>
+      </tr>
+    </table>
+    <script src="script.js"></script>
+  </body>
+</html>

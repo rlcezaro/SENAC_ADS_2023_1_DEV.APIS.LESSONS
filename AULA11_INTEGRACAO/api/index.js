@@ -1,5 +1,9 @@
 const restify = require("restify");
 const errors = require("restify-errors");
+const corsMiddleware = require("restify-cors-middleware2");
+const cors = corsMiddleware({
+  origins: ["*"],
+});
 
 const servidor = restify.createServer({
   name: "loja2",
@@ -10,8 +14,11 @@ servidor.use(restify.plugins.acceptParser(servidor.acceptable));
 servidor.use(restify.plugins.queryParser());
 servidor.use(restify.plugins.bodyParser());
 
+servidor.pre(cors.preflight);
+servidor.use(cors.actual);
+
 servidor.listen(8001, function () {
-  console.log("%s executando em &s", servidor.name, servidor.url);
+  console.log("%s executando em %s", servidor.name, servidor.url);
 });
 
 var knex = require("knex")({
@@ -20,12 +27,12 @@ var knex = require("knex")({
     host: "localhost",
     user: "root",
     password: "",
-    database: "loja2", //corrigir o nome do banco
+    database: "loja2",
   },
 });
 
 servidor.get("/", (req, res, next) => {
-  res.send(" Bem vindo(a) a API loja");
+  res.send("Bem-vindo(a) `a API Loja!");
 });
 
 servidor.get("/produtos", (req, res, next) => {
@@ -40,7 +47,7 @@ servidor.get("/produtos/:idProd", (req, res, next) => {
     .where("id", idProduto)
     .first()
     .then((dados) => {
-      if (!dados) {
+      if (!dados || dados == "") {
         return res.send(new errors.BadRequestError("Produto não encontrado"));
       }
       res.send(dados);
@@ -64,7 +71,7 @@ servidor.put("/produtos/:idProd", (req, res, next) => {
       if (!dados) {
         return res.send(new errors.BadRequestError("Produto não encontrado"));
       }
-      res.send("produto atualizado");
+      res.send("Produto Atualizado");
     }, next);
 });
 
@@ -77,9 +84,9 @@ servidor.del("/produtos/:idProd", (req, res, next) => {
       if (!dados) {
         return res.send(new errors.BadRequestError("Produto não encontrado"));
       }
-      res.send("produto deletado");
+      res.send("Produto Deletado");
     }, next);
 });
 
-//node .\server.js (PARA INICIAR)
+//node .\index.js (PARA INICIAR o servidor)
 //ctrl + c para encerrar o servidor
