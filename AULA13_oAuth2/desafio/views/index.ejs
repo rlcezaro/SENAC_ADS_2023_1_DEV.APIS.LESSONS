@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aplicação oAuth2</title>
+  </head>
+  <body>
+    <h1>Aplicação oAuth2</h1>
+    <p>Esta aplicação permite realizar login com o Github e mostrar o nome do usuário.</p>
+    <!-- Criar um botão que redireciona para o endpoint de autorização do Github com o client_id, o redirect_uri e o scope user -->
+    <a href="https://github.com/login/oauth/authorize?client_id=<%= client_id %>&redirect_uri=<%= redirect_uri %>&scope=user">
+      <button>Login com Github</button>
+    </a>
+  </body>
+</html>
